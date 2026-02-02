@@ -1,0 +1,231 @@
+/* Sidebar Styling */
+.sidebar {
+  width: 320px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #0d1b2a;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #4ecdc4, #44af69);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sidebar-subtitle {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Vehicle Count Info */
+.vehicle-count {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.online-count {
+  color: #4ecdc4;
+  font-weight: 700;
+}
+
+/* Vehicle List */
+.vehicle-list {
+  flex: 1;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+/* Vehicle Item */
+.vehicle-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.vehicle-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.vehicle-item.selected {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(68, 175, 105, 0.2));
+  border-color: #4ecdc4;
+  box-shadow: 0 0 12px rgba(78, 205, 196, 0.2);
+}
+
+/* Vehicle Icon Container */
+.vehicle-icon-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-indicator {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: -2px;
+  right: -2px;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.online {
+  background: #4ecdc4;
+  box-shadow: 0 0 8px #4ecdc4;
+}
+
+.status-indicator.offline {
+  background: #cccccc;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 16px currentColor;
+  }
+}
+
+.vehicle-icon {
+  font-size: 1.6rem;
+}
+
+/* Vehicle Info */
+.vehicle-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vehicle-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vehicle-id {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-family: 'Courier New', monospace;
+}
+
+.vehicle-meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.last-update {
+  opacity: 0.6;
+  margin-left: auto;
+}
+
+/* Selection Indicator */
+.selection-indicator {
+  display: none;
+  color: #4ecdc4;
+  font-weight: bold;
+}
+
+.vehicle-item.selected .selection-indicator {
+  display: block;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 280px;
+  }
+
+  .vehicle-item {
+    padding: 0.75rem;
+  }
+
+  .vehicle-name {
+    font-size: 0.85rem;
+  }
+
+  .vehicle-meta {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
